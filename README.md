@@ -19,13 +19,22 @@ Project Janus finds weaknesses in a **copy** of your environment, learns how to 
 
 ---
 
-## Quick start
+## Quick start (TA reproduction)
 
 ```bash
+git clone https://github.com/Pun33t-B0kk4/project-janus_aswa.git
+cd project-janus_aswa
 python -m pip install -r requirements.txt
+python run_baseline.py --input examples/test_unsafe.json
 ```
 
-### Web console (recommended demo)
+- **Dependencies:** see `requirements.txt` (fastapi, uvicorn, httpx, pydantic)
+- **API keys / env vars:** none required for the baseline
+- **Input:** `examples/test_unsafe.json`
+- **Output:** printed in the terminal, plus `examples/last_run.json`
+- **Screenshot of a successful run:** `examples/baseline_output_screenshot.png`
+
+### Web console (optional demo)
 
 ```bash
 python run_web.py
@@ -37,14 +46,7 @@ Open **http://127.0.0.1:8765**
 2. Click **Run ASWA loop**  
 3. Click a **Probe** button to confirm production is hardened  
 
-### Offline CLI baseline
-
-```bash
-python run_baseline.py --input examples/test_unsafe.json
-```
-
-Output appears in the console and in `examples/last_run.json`.
-
+Local demo token for web API only: `Bearer prod-secret-abc`
 ---
 
 ## Use cases in the console
