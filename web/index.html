@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Janus — ASWA Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="brand-block">
+      <p class="eyebrow">ASWA Live Console</p>
+      <h1>PROJECT JANUS</h1>
+      <p class="tagline">Adversarial Shadow-World Architecture — defensive twin for production systems</p>
+    </div>
+    <div class="status-chip" id="statusChip">connecting…</div>
+  </header>
+
+  <section class="hero-loop" aria-label="ASWA operating loop">
+    <div class="phase" data-phase="duplicate"><span>01</span><strong>Duplicate</strong><em>RME twin</em></div>
+    <div class="phase-arrow" aria-hidden="true"></div>
+    <div class="phase" data-phase="attack"><span>02</span><strong>Attack</strong><em>ASA only in shadow</em></div>
+    <div class="phase-arrow" aria-hidden="true"></div>
+    <div class="phase" data-phase="learn"><span>03</span><strong>Learn</strong><em>design countermeasure</em></div>
+    <div class="phase-arrow" aria-hidden="true"></div>
+    <div class="phase" data-phase="deploy"><span>04</span><strong>Deploy</strong><em>Janus Gate patch</em></div>
+  </section>
+
+  <main class="layout">
+    <section class="panel controls">
+      <h2>Operator Controls</h2>
+      <p class="hint">Pick a story (use case), run it in production, then let Janus practice on a copy and harden the real system.</p>
+
+      <h3>Use cases</h3>
+      <div class="scenario-grid" id="scenarioGrid"></div>
+
+      <div class="btn-row" style="margin-top:0.85rem">
+        <button id="btnRun" class="btn primary">Run ASWA loop</button>
+        <button id="btnReset" class="btn ghost">Reset world</button>
+      </div>
+      <h3>Prove it hardened</h3>
+      <div class="btn-row">
+        <button class="btn ghost probe" data-probe='{"kind":"grant_access"}'>Probe payroll grant</button>
+        <button class="btn ghost probe" data-probe='{"kind":"send_email"}'>Probe salary email</button>
+        <button class="btn ghost probe" data-probe='{"kind":"create_payment"}'>Probe big payment</button>
+        <button class="btn ghost probe" data-probe='{"kind":"close_ticket"}'>Probe ticket close</button>
+      </div>
+      <div class="log" id="actionLog"></div>
+    </section>
+
+    <section class="panel light">
+      <div class="panel-head">
+        <h2>Production · Light World</h2>
+        <span class="pill" id="defensePill">0 defenses</span>
+      </div>
+      <div class="metrics">
+        <div><label>Payroll ACL</label><code id="payrollAcl">—</code></div>
+        <div><label>Emails sent</label><code id="emailCount">0</code></div>
+        <div><label>Telemetry</label><code id="telCount">0</code></div>
+      </div>
+      <h3>Installed defenses</h3>
+      <ul class="list" id="defenseList"><li class="muted">None yet</li></ul>
+      <h3>Recent telemetry</h3>
+      <pre class="code" id="telemetryBox">Waiting for traffic…</pre>
+    </section>
+
+    <section class="panel shadow">
+      <div class="panel-head">
+        <h2>Shadow-World Sandbox</h2>
+        <span class="pill amber" id="shadowPill">idle</span>
+      </div>
+      <div class="phase-detail" id="phaseDetail">
+        <p class="muted">No ASWA run yet. Trigger unsafe traffic, then run the loop.</p>
+      </div>
+      <div class="grid-2">
+        <div>
+          <h3>Duplicate</h3>
+          <pre class="code" id="dupBox">—</pre>
+        </div>
+        <div>
+          <h3>Attack trace</h3>
+          <pre class="code" id="atkBox">—</pre>
+        </div>
+        <div>
+          <h3>Learn</h3>
+          <pre class="code" id="learnBox">—</pre>
+        </div>
+        <div>
+          <h3>Deploy</h3>
+          <pre class="code" id="deployBox">—</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Janus Gate enforces unidirectionality: defenses out, payloads never out.</span>
+    <span id="footerMeta">localhost:8765</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

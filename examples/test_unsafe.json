@@ -1,0 +1,18 @@
+{
+  "n": 3,
+  "asa_episodes": 20,
+  "telemetry": [
+    {"type": "heartbeat", "host": "erp-1", "token": "prod-secret-abc", "status": "ok"},
+    {
+      "type": "identity_seen",
+      "principal": "jane@vendor.com",
+      "role": "contractor",
+      "external": true
+    },
+    {"type": "file_touch", "file": "q4_salary.xlsx", "user": "hr-admin"}
+  ],
+  "expected_light_world_clean": true,
+  "expected_defenses_exported": true,
+  "expected_secrets_absent": true,
+  "notes": "Contractor identity and a restricted file appear in telemetry. ASAs should break the Shadow World; Janus Gate should export defenses only."
+}

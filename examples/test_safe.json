@@ -1,0 +1,17 @@
+{
+  "n": 3,
+  "asa_episodes": 20,
+  "telemetry": [
+    {"type": "heartbeat", "host": "it-ops-1", "token": "prod-secret-abc", "status": "ok"},
+    {
+      "type": "ticket_update",
+      "ticket_id": "T-104",
+      "status": "open",
+      "comment": "VPN block lifted for alex"
+    }
+  ],
+  "expected_light_world_clean": true,
+  "expected_defenses_exported": true,
+  "expected_secrets_absent": true,
+  "notes": "Benign ticket telemetry. The Light World must still remain untouched by ASA traces."
+}
