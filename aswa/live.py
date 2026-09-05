@@ -143,7 +143,7 @@ def run_aswa_against_production(
     result["production"] = {
         "base_url": base_url,
         "telemetry_events_ingested": len(tel["events"]),
-        "telemetry_next_cursor": tel["next"],
+        "telemetry_next_index": tel["next"],
         "patches_pushed": deployed,
         "defenses_now": client.snapshot().get("defenses", []),
     }
